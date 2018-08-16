@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "StartStorybookSchema",
+  "title": "Start Storybook schema for Build Facade",
+  "description": "Start Storybook target options (https://storybook.js.org/configurations/cli-options/)",
+  "properties": {
+    "port": {
+      "type": "number",
+      "description": "Port to run Storybook",
+      "default": 6006
+    },
+    "host": {
+      "type": "string",
+      "description": "Host to run Storybook"
+    },
+    "staticDirs": {
+      "type": "array",
+      "description": "Directories where to load static files from",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "configDir": {
+      "type": "string",
+      "description": "Directory where to load Storybook configurations from"
+    },
+    "quiet": {
+      "type": "boolean",
+      "description": "Suppress verbose build output",
+      "default": false
+    }
+  },
+  "required": ["port"]
+}

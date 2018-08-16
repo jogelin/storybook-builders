@@ -1,0 +1,15 @@
+{
+  "$schema": "@angular-devkit/architect/src/builders-schema.json",
+  "builders": {
+    "start-storybook": {
+      "class": "./src/start-storybook",
+      "schema": "./src/start-storybook/schema.json",
+      "description": "Start storybook"
+    },
+    "build-storybook": {
+      "class": "./src/build-storybook",
+      "schema": "./src/build-storybook/schema.json",
+      "description": "Build storybook"
+    }
+  }
+}
