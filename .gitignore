@@ -10,3 +10,5 @@ package
 *.d.ts
 *.js
 *.js.map
+
+.angulardoc.json
