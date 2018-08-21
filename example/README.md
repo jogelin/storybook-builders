@@ -12,7 +12,7 @@ Then all karma configurations and dependencies were removed. Only the jest build
 │   │   ├── ...
 │   ├── my-second-app
 │   │   ├── ...
-│   └── my-first-lib
+│   └── lib-ui
 │       ├── ...
 ├── angular.json
 └── ...
@@ -42,9 +42,9 @@ Run `ng build my-first-app` to build the project. The build artifacts will be st
 
 Run `ng build my-second-app` to build the project. The build artifacts will be stored in the `dist/my-second-app` directory. Use the `--prod` flag for a production build.
 
-### my-first-lib
+### lib-ui
 
-Run `ng build my-first-lib` to build the project. The build artifacts will be stored in the `dist/my-first-lib` directory. Use the `--prod` flag for a production build.
+Run `ng build lib-ui` to build the project. The build artifacts will be stored in the `dist/lib-ui` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
@@ -60,9 +60,9 @@ Run `ng test my-first-app` to execute the unit tests via [Jest](https://jestjs.i
 
 Run `ng test my-second-app` to execute the unit tests via [Jest](https://jestjs.io/).
 
-### my-first-lib
+### lib-ui
 
-Run `ng test my-first-lib` to execute the unit tests via [Jest](https://jestjs.io/).
+Run `ng test lib-ui` to execute the unit tests via [Jest](https://jestjs.io/).
 
 ## Further help
 

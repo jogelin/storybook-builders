@@ -11,7 +11,7 @@
   "typings": "src/index.d.ts",
   "builders": "builders.json",
   "scripts": {
-    "build": "tsc"
+    "build": "rimraf dist/ && tsc && cp builder"
   },
   "dependencies": {
     "@storybook/core": "4.0.0-alpha.16",
@@ -29,6 +29,7 @@
     "@types/jest": "^23.3.1",
     "@types/node": "^10.5.4",
     "jest": "^23.4.2",
+    "rimraf": "^2.6.2",
     "ts-jest": "^23.0.1",
     "ts-node": "^7.0.0",
     "tslint-config-prettier": "^1.14.0",
