@@ -13,7 +13,7 @@
   "scripts": {
     "clean": "rimraf dist/",
     "build": "yarn clean && tsc && yarn copy:schema && yarn copy:example",
-    "copy:schema": "cp builders.json ./dist & find ./src -name '*.json' -type f -exec cp --parents {} ./dist \\;",
+    "copy:schema": "cp package.json ./dist & cp builders.json ./dist & find ./src -name '*.json' -type f -exec cp --parents {} ./dist \\;",
     "copy:example": "cpr ./dist ../example/node_modules/@storybook/angular/dist/builders -d"
   },
   "dependencies": {
@@ -43,6 +43,6 @@
   "peerDependencies": {
     "@angular-devkit/architect": ">= ^0.7.0",
     "@angular-devkit/core": ">= 0.7.0",
-    "@storybook/core": "4.0.0-alpha.16"
+    "@storybook/core": "4.0.0-alpha.17"
   }
 }
