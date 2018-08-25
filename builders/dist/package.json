@@ -1,0 +1,48 @@
+{
+    "name": "@storybook/angular",
+    "version": "0.0.0",
+    "description": "Storybook Angular Webpack Build Facade",
+    "author": "Jonathan Gelin",
+    "license": "MIT",
+    "engines": {
+        "node": ">=8.9.0"
+    },
+    "main": "src/index.js",
+    "typings": "src/index.d.ts",
+    "builders": "builders.json",
+    "scripts": {
+        "clean": "rimraf dist/",
+        "build": "yarn clean && tsc && yarn copy:schema && yarn copy:example",
+        "copy:schema": "cp builders.json ./dist & find ./src -name '*.json' -type f -exec cp --parents {} ./dist \\;",
+        "copy:example": "cpr ./dist ../example/node_modules/@storybook/angular/dist/builders -d"
+    },
+    "dependencies": {
+        "@storybook/core": "4.0.0-alpha.17",
+        "@storybook/node-logger": "4.0.0-alpha.17",
+        "@storybook/angular": "4.0.0-alpha.17",
+        "angular2-template-loader": "^0.6.2",
+        "core-js": "^2.5.7",
+        "rxjs": "^6.2.2",
+        "sass-loader": "^7.1.0",
+        "ts-loader": "^4.4.2",
+        "zone.js": "^0.8.26"
+    },
+    "devDependencies": {
+        "@angular-devkit/architect": "^0.7.1",
+        "@angular-devkit/core": "^0.7.1",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.5.4",
+        "cpr": "^3.0.1",
+        "jest": "^23.4.2",
+        "rimraf": "^2.6.2",
+        "ts-jest": "^23.0.1",
+        "ts-node": "^7.0.0",
+        "tslint-config-prettier": "^1.14.0",
+        "typescript": "^3.0.1"
+    },
+    "peerDependencies": {
+        "@angular-devkit/architect": ">= ^0.7.0",
+        "@angular-devkit/core": ">= 0.7.0",
+        "@storybook/core": "4.0.0-alpha.16"
+    }
+}

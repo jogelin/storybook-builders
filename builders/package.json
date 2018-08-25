@@ -1,5 +1,5 @@
 {
-  "name": "@angular-devkit/build-angular",
+  "name": "@storybook/angular",
   "version": "0.0.0",
   "description": "Storybook Angular Webpack Build Facade",
   "author": "Jonathan Gelin",
@@ -11,11 +11,15 @@
   "typings": "src/index.d.ts",
   "builders": "builders.json",
   "scripts": {
-    "build": "rimraf dist/ && tsc && cp builder"
+    "clean": "rimraf dist/",
+    "build": "yarn clean && tsc && yarn copy:schema && yarn copy:example",
+    "copy:schema": "cp builders.json ./dist & find ./src -name '*.json' -type f -exec cp --parents {} ./dist \\;",
+    "copy:example": "cpr ./dist ../example/node_modules/@storybook/angular/dist/builders -d"
   },
   "dependencies": {
-    "@storybook/core": "4.0.0-alpha.16",
-    "@storybook/node-logger": "4.0.0-alpha.16",
+    "@storybook/core": "4.0.0-alpha.17",
+    "@storybook/node-logger": "4.0.0-alpha.17",
+    "@storybook/angular": "4.0.0-alpha.17",
     "angular2-template-loader": "^0.6.2",
     "core-js": "^2.5.7",
     "rxjs": "^6.2.2",
@@ -28,6 +32,7 @@
     "@angular-devkit/core": "^0.7.1",
     "@types/jest": "^23.3.1",
     "@types/node": "^10.5.4",
+    "cpr": "^3.0.1",
     "jest": "^23.4.2",
     "rimraf": "^2.6.2",
     "ts-jest": "^23.0.1",

@@ -2,9 +2,11 @@ import { logger } from '@storybook/node-logger';
 
 import packageJson from '../package.json';
 
-import wrapInitialConfig from './wrapInitialConfig';
-
-import { getAngularCliWebpackConfigOptions, applyAngularCliWebpackConfig } from './angular-cli_config';
+import wrapInitialConfig from '@storybook/angular/src/server/wrapInitialConfig';
+import {
+  getAngularCliWebpackConfigOptions,
+  applyAngularCliWebpackConfig
+} from '@storybook/angular/src/server/angular-cli_config';
 
 const cliWebpackConfigOptions = getAngularCliWebpackConfigOptions(process.cwd());
 
