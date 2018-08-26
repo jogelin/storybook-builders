@@ -1,34 +1,29 @@
 {
-    "$schema": "http://json-schema.org/schema",
-    "id": "BuildStorybookSchema",
-    "title": "Build Storybook schema for Build Facade",
-    "description": "Build Storybook target options (https://storybook.js.org/configurations/cli-options/)",
-    "properties": {
-      "host": {
-        "type": "string",
-        "description": "Host to run Storybook"
+  "$schema": "http://json-schema.org/schema",
+  "id": "BuildStorybookSchema",
+  "title": "Build Storybook schema for Build Facade",
+  "description": "Build Storybook target options (https://storybook.js.org/configurations/cli-options/)",
+  "properties": {
+    "staticDir": {
+      "type": "array",
+      "description": "Directories where to load static files from",
+      "items": {
+        "type": "string"
       },
-      "staticDirs": {
-        "type": "array",
-        "description": "Directories where to load static files from",
-        "items": {
-          "type": "string"
-        },
-        "default": []
-      },
-      "outputDir": {
-        "type": "string",
-        "description": "Directory where to store built files"
-      },
-      "configDir": {
-        "type": "string",
-        "description": "Directory where to load Storybook configurations from"
-      },
-      "watch": {
-        "type": "boolean",
-        "description": "Enable watch mode",
-        "default": false
-      }
+      "default": []
+    },
+    "outputDir": {
+      "type": "string",
+      "description": "Directory where to store built files"
+    },
+    "configDir": {
+      "type": "string",
+      "description": "Directory where to load Storybook configurations from"
+    },
+    "watch": {
+      "type": "boolean",
+      "description": "Enable watch mode",
+      "default": false
     }
   }
-  
+}

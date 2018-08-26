@@ -7,29 +7,45 @@
     "port": {
       "type": "number",
       "description": "Port to run Storybook",
-      "default": 6006
+      "default": 9001
     },
     "host": {
       "type": "string",
       "description": "Host to run Storybook"
     },
-    "staticDirs": {
+    "staticDir": {
       "type": "array",
       "description": "Directories where to load static files from",
       "items": {
         "type": "string"
-      },
-      "default": []
+      }
     },
     "configDir": {
       "type": "string",
       "description": "Directory where to load Storybook configurations from"
+    },
+    "https": {
+      "type": "boolean",
+      "description": "Serve Storybook over HTTPS. Note: You must provide your own certificate information.",
+      "default": false
+    },
+    "sslCert": {
+      "type": "string",
+      "description": "Provide an SSL certificate. (Required with --https)"
+    },
+    "sslKey": {
+      "type": "string",
+      "description": "Provide an SSL key. (Required with --https)"
+    },
+    "smokeTest": {
+      "type": "boolean",
+      "description": "Exit after successful start",
+      "default": false
     },
     "quiet": {
       "type": "boolean",
       "description": "Suppress verbose build output",
       "default": false
     }
-  },
-  "required": ["port"]
+  }
 }

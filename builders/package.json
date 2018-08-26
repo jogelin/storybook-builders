@@ -17,10 +17,11 @@
     "copy:example": "cpr ./dist ../example/node_modules/@storybook/angular/dist/builders -d"
   },
   "dependencies": {
-    "@storybook/core": "4.0.0-alpha.17",
-    "@storybook/node-logger": "4.0.0-alpha.17",
-    "@storybook/angular": "4.0.0-alpha.17",
+    "@storybook/angular": "4.0.0-alpha.18",
+    "@storybook/core": "4.0.0-alpha.18",
+    "@storybook/node-logger": "4.0.0-alpha.18",
     "angular2-template-loader": "^0.6.2",
+    "commander": "^2.17.1",
     "core-js": "^2.5.7",
     "rxjs": "^6.2.2",
     "sass-loader": "^7.1.0",
@@ -43,6 +44,6 @@
   "peerDependencies": {
     "@angular-devkit/architect": ">= ^0.7.0",
     "@angular-devkit/core": ">= 0.7.0",
-    "@storybook/core": "4.0.0-alpha.17"
+    "@storybook/core": "4.0.0-alpha.18"
   }
 }

@@ -211,6 +211,17 @@
     "@babel/helper-remap-async-to-generator" "7.0.0-rc.3"
     "@babel/plugin-syntax-async-generators" "7.0.0-rc.3"
 
+"@babel/plugin-proposal-class-properties@^7.0.0-rc.3":
+  version "7.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.0.0-rc.3.tgz#4ccf74b66780a87a73160d17e799e3ada1b30d29"
+  dependencies:
+    "@babel/helper-function-name" "7.0.0-rc.3"
+    "@babel/helper-member-expression-to-functions" "7.0.0-rc.3"
+    "@babel/helper-optimise-call-expression" "7.0.0-rc.3"
+    "@babel/helper-plugin-utils" "7.0.0-rc.3"
+    "@babel/helper-replace-supers" "7.0.0-rc.3"
+    "@babel/plugin-syntax-class-properties" "7.0.0-rc.3"
+
 "@babel/plugin-proposal-json-strings@7.0.0-rc.3":
   version "7.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-json-strings/-/plugin-proposal-json-strings-7.0.0-rc.3.tgz#0b1d313981d6f4dca6b1419ee0b61d57dc368308"
@@ -243,6 +254,12 @@
 "@babel/plugin-syntax-async-generators@7.0.0-rc.3":
   version "7.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-async-generators/-/plugin-syntax-async-generators-7.0.0-rc.3.tgz#7d768f8bb18597781ade989c87519181b69764bf"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-rc.3"
+
+"@babel/plugin-syntax-class-properties@7.0.0-rc.3":
+  version "7.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-class-properties/-/plugin-syntax-class-properties-7.0.0-rc.3.tgz#6a2986f0c12fecded9ceda0fd368811421431d89"
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-rc.3"
 
@@ -406,13 +423,13 @@
     "@babel/helper-get-function-arity" "7.0.0-rc.3"
     "@babel/helper-plugin-utils" "7.0.0-rc.3"
 
-"@babel/plugin-transform-regenerator@7.0.0-rc.3", "@babel/plugin-transform-regenerator@^7.0.0-rc.2":
+"@babel/plugin-transform-regenerator@7.0.0-rc.3", "@babel/plugin-transform-regenerator@^7.0.0-rc.3":
   version "7.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.0.0-rc.3.tgz#d28f5dae6a2cbb3748abf4b8b89678ea3b1ff029"
   dependencies:
     regenerator-transform "^0.13.3"
 
-"@babel/plugin-transform-runtime@^7.0.0-rc.2":
+"@babel/plugin-transform-runtime@^7.0.0-rc.3":
   version "7.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.0.0-rc.3.tgz#5a32af88f1a02e696e3e112709495a9b20bb8a2d"
   dependencies:
@@ -460,7 +477,7 @@
     "@babel/helper-regex" "7.0.0-rc.3"
     regexpu-core "^4.1.3"
 
-"@babel/preset-env@^7.0.0-rc.2":
+"@babel/preset-env@^7.0.0-rc.3":
   version "7.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.0.0-rc.3.tgz#b05748a412614bca9f754266610b6cba8f49af10"
   dependencies:
@@ -506,7 +523,7 @@
     js-levenshtein "^1.1.3"
     semver "^5.3.0"
 
-"@babel/runtime@^7.0.0-rc.1", "@babel/runtime@^7.0.0-rc.2":
+"@babel/runtime@^7.0.0-rc.1", "@babel/runtime@^7.0.0-rc.3":
   version "7.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-rc.3.tgz#7b0d6762220d2efa2958e72f8a661e1409c2d5d9"
   dependencies:
@@ -617,22 +634,22 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.1.tgz#53f349bb986ab273d601175aa1b25a655ab90ee3"
 
-"@storybook/addons@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.0.0-alpha.17.tgz#ffe54d0aacdb52d8330e78aa5bd13810717c0c49"
+"@storybook/addons@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.0.0-alpha.18.tgz#c28334f66423d3defe44558f74143de516ef1313"
   dependencies:
-    "@storybook/channels" "4.0.0-alpha.17"
-    "@storybook/components" "4.0.0-alpha.17"
+    "@storybook/channels" "4.0.0-alpha.18"
+    "@storybook/components" "4.0.0-alpha.18"
     global "^4.3.2"
     util-deprecate "^1.0.2"
 
-"@storybook/angular@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/angular/-/angular-4.0.0-alpha.17.tgz#bd46d49864e4fc1b0cdc26aff44be51e9863b9c0"
+"@storybook/angular@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/angular/-/angular-4.0.0-alpha.18.tgz#1daa2c642b38382283d9b66ce752385eee37a339"
   dependencies:
-    "@babel/runtime" "^7.0.0-rc.2"
-    "@storybook/core" "4.0.0-alpha.17"
-    "@storybook/node-logger" "4.0.0-alpha.17"
+    "@babel/runtime" "^7.0.0-rc.3"
+    "@storybook/core" "4.0.0-alpha.18"
+    "@storybook/node-logger" "4.0.0-alpha.18"
     angular2-template-loader "^0.6.2"
     core-js "^2.5.7"
     global "^4.3.2"
@@ -642,25 +659,25 @@
     ts-loader "^4.4.2"
     zone.js "^0.8.26"
 
-"@storybook/channel-postmessage@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-4.0.0-alpha.17.tgz#6964ba7b38a6a78925d415936bcd49c6916f1b3c"
+"@storybook/channel-postmessage@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-4.0.0-alpha.18.tgz#2b06bf79761172bc09db49a1aa1c620833fc2ccf"
   dependencies:
-    "@storybook/channels" "4.0.0-alpha.17"
+    "@storybook/channels" "4.0.0-alpha.18"
     global "^4.3.2"
     json-stringify-safe "^5.0.1"
 
-"@storybook/channels@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.0.0-alpha.17.tgz#ce2798258a40c687e948e3eef42085768314cfcd"
+"@storybook/channels@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.0.0-alpha.18.tgz#b618e91dd1048e13397e07dbbe22cc9d04536cfd"
 
-"@storybook/client-logger@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-4.0.0-alpha.17.tgz#3b0be747cd0254241741cb506728c6987d092ab9"
+"@storybook/client-logger@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-4.0.0-alpha.18.tgz#c6eb33fe36c68b47e7de760bb0fd973a9402cdd4"
 
-"@storybook/components@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-4.0.0-alpha.17.tgz#43d1895a6ba7b0745055e854ac4861e62dcf295f"
+"@storybook/components@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-4.0.0-alpha.18.tgz#ffb64f3a4dfd4319fbf7039b7c7de07d23fdd2e6"
   dependencies:
     emotion "^9.2.6"
     emotion-theming "^9.2.6"
@@ -674,24 +691,25 @@
     react-textarea-autosize "^7.0.4"
     render-fragment "^0.1.1"
 
-"@storybook/core-events@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-4.0.0-alpha.17.tgz#bb541648a59e730842a185e8a83f99b8c1b6eb06"
+"@storybook/core-events@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-4.0.0-alpha.18.tgz#9b1d576bc8292b401e1aebf261e2d99a2383c873"
 
-"@storybook/core@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-4.0.0-alpha.17.tgz#3673470e10500dd6934404dd340f0a7ff5d042d7"
+"@storybook/core@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-4.0.0-alpha.18.tgz#c3ccea857408a8aa6a5a7d3e474bb3c40638b463"
   dependencies:
-    "@babel/plugin-transform-regenerator" "^7.0.0-rc.2"
-    "@babel/plugin-transform-runtime" "^7.0.0-rc.2"
-    "@babel/preset-env" "^7.0.0-rc.2"
-    "@babel/runtime" "^7.0.0-rc.2"
-    "@storybook/addons" "4.0.0-alpha.17"
-    "@storybook/channel-postmessage" "4.0.0-alpha.17"
-    "@storybook/client-logger" "4.0.0-alpha.17"
-    "@storybook/core-events" "4.0.0-alpha.17"
-    "@storybook/node-logger" "4.0.0-alpha.17"
-    "@storybook/ui" "4.0.0-alpha.17"
+    "@babel/plugin-proposal-class-properties" "^7.0.0-rc.3"
+    "@babel/plugin-transform-regenerator" "^7.0.0-rc.3"
+    "@babel/plugin-transform-runtime" "^7.0.0-rc.3"
+    "@babel/preset-env" "^7.0.0-rc.3"
+    "@babel/runtime" "^7.0.0-rc.3"
+    "@storybook/addons" "4.0.0-alpha.18"
+    "@storybook/channel-postmessage" "4.0.0-alpha.18"
+    "@storybook/client-logger" "4.0.0-alpha.18"
+    "@storybook/core-events" "4.0.0-alpha.18"
+    "@storybook/node-logger" "4.0.0-alpha.18"
+    "@storybook/ui" "4.0.0-alpha.18"
     airbnb-js-shims "^2.1.0"
     autoprefixer "^9.1.0"
     babel-plugin-macros "^2.2.2"
@@ -737,11 +755,11 @@
     "@storybook/react-simple-di" "^1.2.1"
     babel-runtime "6.x.x"
 
-"@storybook/node-logger@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-4.0.0-alpha.17.tgz#f0943904a161624d60600f12642d06a2a1a28e20"
+"@storybook/node-logger@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-4.0.0-alpha.18.tgz#ce0944cbafc2cabfcaf95e7852e9ed4750457c0b"
   dependencies:
-    "@babel/runtime" "^7.0.0-rc.2"
+    "@babel/runtime" "^7.0.0-rc.3"
     npmlog "^4.1.2"
 
 "@storybook/podda@^1.2.3":
@@ -776,13 +794,13 @@
   dependencies:
     babel-runtime "^6.5.0"
 
-"@storybook/ui@4.0.0-alpha.17":
-  version "4.0.0-alpha.17"
-  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-4.0.0-alpha.17.tgz#e80373b4381df277b787f3668b8c4a85f0bfd660"
+"@storybook/ui@4.0.0-alpha.18":
+  version "4.0.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-4.0.0-alpha.18.tgz#035511489fa11b34cea5252ea6fdc1788dee89c0"
   dependencies:
     "@ndelangen/react-treebeard" "^2.1.0"
-    "@storybook/components" "4.0.0-alpha.17"
-    "@storybook/core-events" "4.0.0-alpha.17"
+    "@storybook/components" "4.0.0-alpha.18"
+    "@storybook/core-events" "4.0.0-alpha.18"
     "@storybook/mantra-core" "^1.7.2"
     "@storybook/podda" "^1.2.3"
     "@storybook/react-komposer" "^2.0.4"
@@ -2055,7 +2073,7 @@ combined-stream@1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.17.0:
+commander@^2.17.0, commander@^2.17.1:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
 
@@ -4723,8 +4741,8 @@ mute-stream@0.0.7:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
 nan@^2.9.2:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.11.0.tgz#574e360e4d954ab16966ec102c0c049fd961a099"
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -4763,8 +4781,8 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
 
 nice-try@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.4.tgz#d93962f6c52f2c1558c0fbda6d512819f1efe1c4"
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
 
 node-fetch@^1.0.1:
   version "1.7.3"
