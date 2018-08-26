@@ -8,7 +8,6 @@ import program from 'commander';
 
 import storyBookOptions from '@storybook/angular/dist/server/options';
 
-import jsonSchema from './schema.json';
 import { Options } from '../storybook.types';
 import { mapToStorybookOptions } from '../storybook-options';
 
@@ -30,7 +29,7 @@ export default class StartStorybookBuilder implements Builder<StartStorybookSche
 export function initArgumentsFromOptions(): OperatorFunction<BuilderConfig, BuilderConfig> {
   return tap(({ options, root }) => {
     // init storybook arguments = command argument OR builder option
-    Object.keys(jsonSchema.properties).forEach(key => {
+    Object.keys(options).forEach(key => {
       program[key] = program[key] || Array.isArray(options[key]) ? options[key].join(',') : options[key];
     });
 
