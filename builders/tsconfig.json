@@ -8,6 +8,7 @@
     "baseUrl": ".",
     "outDir": "./dist/src",
     "lib": ["dom", "es2015", "es2016", "es2017"],
+    "typeRoots": ["node_modules/@types", "node_modules/webpack"],
     "allowSyntheticDefaultImports": true,
     "suppressImplicitAnyIndexErrors": true,
     "forceConsistentCasingInFileNames": true,

@@ -10,6 +10,10 @@
  */
 export interface StartStorybookSchema {
   /**
+   * The name of the TypeScript configuration file.
+   */
+  tsConfig: string;
+  /**
    * Port to run Storybook
    */
   port?: number;

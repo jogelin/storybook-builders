@@ -10,6 +10,10 @@
  */
 export interface StartStorybookSchema {
   /**
+   * The name of the TypeScript configuration file.
+   */
+  tsConfig: string;
+  /**
    * Directories where to load static files from
    */
   staticDir?: string[];

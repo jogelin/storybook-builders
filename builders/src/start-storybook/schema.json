@@ -4,6 +4,10 @@
   "title": "Start Storybook schema for Build Facade",
   "description": "Start Storybook target options (https://storybook.js.org/configurations/cli-options/)",
   "properties": {
+    "tsConfig": {
+      "type": "string",
+      "description": "The name of the TypeScript configuration file."
+    },
     "port": {
       "type": "number",
       "description": "Port to run Storybook",
@@ -47,5 +51,6 @@
       "description": "Suppress verbose build output",
       "default": false
     }
-  }
+  },
+  "required": ["tsConfig"]
 }
