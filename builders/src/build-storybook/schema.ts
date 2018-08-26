@@ -8,7 +8,7 @@
 /**
  * Build Storybook target options (https://storybook.js.org/configurations/cli-options/)
  */
-export interface StartStorybookSchema {
+export interface BuildStorybookSchema {
   /**
    * The name of the TypeScript configuration file.
    */

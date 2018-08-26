@@ -1,7 +1,13 @@
 import { wrapInitialConfig } from '@storybook/angular/src/server/';
 import { ConfigurationWrapper } from './storybook.types';
+import fs from 'fs';
+import path from 'path';
 
-export function wrapInitialConfig(tsConfig: string): ConfigurationWrapper {
+export function wrapInitialConfig(tsConfigPath: string): ConfigurationWrapper {
+  if (!fs.existsSync(path.resolve(tsConfigPath))) {
+    throw new Error(`Typescript config file "${tsConfigPath}" not found`);
+  }
+
   return (config, configDir) => ({
     ...config,
     module: {
@@ -13,7 +19,9 @@ export function wrapInitialConfig(tsConfig: string): ConfigurationWrapper {
           use: [
             {
               loader: require.resolve('ts-loader'),
-              options: loadTsConfig(configDir)
+              options: {
+                configFile: tsConfigPath
+              }
             },
             require.resolve('angular2-template-loader')
           ]

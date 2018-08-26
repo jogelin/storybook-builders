@@ -1,16 +1,16 @@
+import { BuilderConfiguration } from '@angular-devkit/architect';
+import { BuildStorybookSchema } from './build-storybook/schema';
 import { logger } from '@storybook/node-logger';
 
 import packageJson from '../package.json';
 
-import { wrapInitialConfig } from './wrapInitialConfig';
+import { wrapInitialConfig } from './wrap-initial-config';
 
-import { getAngularCliWebpackConfigOptions, applyAngularCliWebpackConfig } from './angular-cli_config';
+import { getAngularCliWebpackConfigOptions, applyAngularCliWebpackConfig } from '@storybook/angular/dist/server';
 import { Options } from './storybook.types';
-import { OperatorFunction } from '../node_modules/rxjs';
-import { map } from '../node_modules/rxjs/operators';
-import { BuilderConfiguration } from '../node_modules/@angular-devkit/architect';
+import { OperatorFunction } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { StartStorybookSchema } from './start-storybook/schema';
-import { BuildStorybookSchema } from 'dist/src/build-storybook/schema';
 
 const cliWebpackConfigOptions = getAngularCliWebpackConfigOptions(process.cwd());
 

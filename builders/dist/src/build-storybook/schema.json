@@ -4,6 +4,10 @@
   "title": "Build Storybook schema for Build Facade",
   "description": "Build Storybook target options (https://storybook.js.org/configurations/cli-options/)",
   "properties": {
+    "tsConfig": {
+      "type": "string",
+      "description": "The name of the TypeScript configuration file."
+    },
     "staticDir": {
       "type": "array",
       "description": "Directories where to load static files from",
@@ -25,5 +29,6 @@
       "description": "Enable watch mode",
       "default": false
     }
-  }
+  },
+  "required": ["tsConfig"]
 }
