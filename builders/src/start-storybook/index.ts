@@ -13,14 +13,10 @@ export default class StartStorybookBuilder implements Builder<StartStorybookSche
   constructor(private context: BuilderContext) {}
 
   run(builderConfig: BuilderConfig): Observable<BuildEvent> {
-    console.log('ok');
     return of(builderConfig).pipe(
       initArgumentsFromOptions(),
-      tap(_ => console.log(_)),
       mapToStorybookOptions<BuilderConfig>(),
-      tap(console.log),
       tap(options => buildDev(options)),
-      tap(console.log),
       map(() => ({ success: true }))
     );
   }
@@ -35,7 +31,5 @@ export function initArgumentsFromOptions(): OperatorFunction<BuilderConfig, Buil
 
     //set default root config dir if not specified
     program.configDir = program.configDir || root;
-
-    console.log(program);
   });
 }

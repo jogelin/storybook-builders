@@ -17,6 +17,7 @@
     "copy:example": "cpr ./dist ../example/node_modules/@storybook/angular/dist/builders -d"
   },
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.7.5",
     "@storybook/angular": "4.0.0-alpha.18",
     "@storybook/core": "4.0.0-alpha.18",
     "@storybook/node-logger": "4.0.0-alpha.18",

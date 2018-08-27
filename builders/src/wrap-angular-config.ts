@@ -1,11 +1,10 @@
 import { ConfigurationWrapper } from './storybook.types';
 import fs from 'fs';
 import path from 'path';
+import { normalizeAssetPatterns } from '@angular-devkit/build-angular/src/utils/normalize-asset-patterns';
 
-export function wrapInitialConfig(tsConfigPath: string): ConfigurationWrapper {
-  if (!fs.existsSync(path.resolve(tsConfigPath))) {
-    throw new Error(`Typescript config file "${tsConfigPath}" not found`);
-  }
+export function wrapAngularConfig(tsConfigPath: string): ConfigurationWrapper {
+  normalizeAssetPatterns();
 
   return (config, configDir) => ({
     ...config,
