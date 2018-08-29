@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 import { StartStorybookSchema } from './start-storybook/schema';
 
 export function mapToStorybookOptions<
-  T extends BuilderConfiguration<Partial<StartStorybookSchema | BuildStorybookSchema>>
+  T extends BuilderConfiguration<Partial<BuildStorybookSchema>>
 >(): OperatorFunction<T, Options> {
   return map(({ options, root }) => ({
     packageJson,

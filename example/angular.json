@@ -40,11 +40,20 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@storybook/angular/dist/builders:build-storybook",
+          "options": {
+            "outputDir": "dist/storybook",
+            "polyfills": "projects/storybook/src/polyfills.ts",
+            "tsConfig": "projects/storybook/tsconfig.app.json",
+            "assets": ["projects/storybook/src/favicon.ico", "projects/storybook/src/assets"],
+            "styles": ["projects/storybook/src/styles.css"]
+          }
+        },
         "serve": {
           "builder": "@storybook/angular/dist/builders:start-storybook",
           "options": {
-            "port": 6006,
-            "tsConfig": "projects/storybook/tsconfig.json"
+            "browserTarget": "storybook:build"
           }
         }
       }

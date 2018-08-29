@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/schema",
   "id": "StartStorybookSchema",
-  "title": "Start Storybook schema for Build Facade",
+  "title": "StartStorybookSchema",
   "description": "Start Storybook target options (https://storybook.js.org/configurations/cli-options/)",
   "properties": {
-    "tsConfig": {
+    "browserTarget": {
       "type": "string",
-      "description": "The name of the TypeScript configuration file."
+      "description": "Target to serve."
     },
     "port": {
       "type": "number",
@@ -15,7 +15,8 @@
     },
     "host": {
       "type": "string",
-      "description": "Host to run Storybook"
+      "description": "Host to run Storybook",
+      "default": "localhost"
     },
     "staticDir": {
       "type": "array",
@@ -52,5 +53,6 @@
       "default": false
     }
   },
-  "required": ["tsConfig"]
+  "additionalProperties": false,
+  "required": ["browserTarget"]
 }
