@@ -4,7 +4,7 @@
   "title": "StartStorybookSchema",
   "description": "Start Storybook target options (https://storybook.js.org/configurations/cli-options/)",
   "properties": {
-    "browserTarget": {
+    "buildTarget": {
       "type": "string",
       "description": "Target to serve."
     },
@@ -54,5 +54,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["browserTarget"]
+  "required": ["buildTarget"]
 }

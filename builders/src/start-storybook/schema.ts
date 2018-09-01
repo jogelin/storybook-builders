@@ -12,7 +12,7 @@ export interface StartStorybookSchema {
   /**
    * Target to serve.
    */
-  browserTarget: string;
+  buildTarget: string;
   /**
    * Port to run Storybook
    */
