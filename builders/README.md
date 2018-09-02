@@ -23,8 +23,10 @@ cd builders && yarn build storybook
 ```
 yarn start storybook
 ```
+### Status
+For the moment, only the webpack config is generated in `output.json`
 
-### Error since upgrade to alpha.20
+#### Error since upgrade to alpha.20
 ```
 Cannot find module 'babel-loader/package.json' from '/mnt/c/Users/jo/dev/build-storybook/example'
 Error: Cannot find module 'babel-loader/package.json' from '/mnt/c/Users/jo/dev/build-storybook/example'

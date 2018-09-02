@@ -36,7 +36,11 @@ export abstract class StorybookBuilder<T extends (BuildStorybookSchema | StartSt
 
       // Generate webpack configurations using the browse builder of angular
       map(() => this.buildWebpackConfig(root, projectRoot, host, browserOptions as NormalizedBrowserBuilderSchema)),
-      tap(webpackConfig => console.dir(webpackConfig, {depth: null, colors: true})),
+
+      // write config to a file (TO DELETE)
+      tap(webpackConfig => {
+        fs.writeFileSync("output.json", JSON.stringify(webpackConfig, null, 2));
+      }),
 
       // Inject options in program to allow storybook to use them
       this.injectBuilderOptionsToProgram(options, browserOptions, projectRoot),
