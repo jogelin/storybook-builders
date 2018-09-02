@@ -4,9 +4,13 @@
   "title": "StartStorybookSchema",
   "description": "Start Storybook target options (https://storybook.js.org/configurations/cli-options/)",
   "properties": {
-    "buildTarget": {
+    "browserTarget": {
       "type": "string",
       "description": "Target to serve."
+    },
+    "tsConfig": {
+      "type": "string",
+      "description": "The name of the TypeScript configuration file."
     },
     "port": {
       "type": "number",
@@ -54,5 +58,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["buildTarget"]
+  "required": ["browserTarget", "tsConfig"]
 }

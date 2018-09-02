@@ -3,7 +3,7 @@ import { Configuration } from 'webpack';
 export type ConfigurationWrapper = (config: Configuration, configDir?: string) => Configuration;
 
 // TODO: Improve typing
-export interface Options {
+export interface StorybookOptions {
   packageJson: any;
   defaultConfigName: string;
   wrapInitialConfig: ConfigurationWrapper;

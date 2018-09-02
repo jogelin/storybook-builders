@@ -68,7 +68,8 @@
         "serve": {
           "builder": "@storybook/angular/dist/builders:start-storybook",
           "options": {
-            "browserTarget": "storybook:build"
+            "browserTarget": "storybook:browse",
+            "tsConfig": "projects/storybook/tsconfig.app.json"
           }
         }
       }

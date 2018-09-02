@@ -16,7 +16,7 @@ export interface BuildStorybookSchema {
   /**
    * The name of the TypeScript configuration file.
    */
-  tsConfig?: string;
+  tsConfig: string;
   /**
    * Global styles to be included in the build.
    */

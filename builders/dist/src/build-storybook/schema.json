@@ -34,5 +34,6 @@
       "default": false
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "required": ["browserTarget", "tsConfig"]
 }
