@@ -6,5 +6,8 @@
   },
   "exclude": [
     "**/*.spec.ts"
+  ],
+  "include": [
+    "../lib-ui/**/*.stories.ts"
   ]
 }
