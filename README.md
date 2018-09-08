@@ -24,31 +24,7 @@ cd builders && yarn build storybook
 yarn start storybook
 ```
 ### Status
-For the moment, only the webpack config is generated in `output.json`
-
-#### Error since upgrade to alpha.20
-```
-Cannot find module 'babel-loader/package.json' from '/mnt/c/Users/jo/dev/build-storybook/example'
-Error: Cannot find module 'babel-loader/package.json' from '/mnt/c/Users/jo/dev/build-storybook/example'
-    at module.exports (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/resolve/lib/sync.js:43:15)
-    at isBabelLoader8 (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/@storybook/core/dist/server/loadCustomBabelConfig.js:68:50)
-    at _default (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/@storybook/core/dist/server/loadCustomBabelConfig.js:88:10)
-    at getBabelConfig (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/@storybook/core/dist/server/config.js:39:61)
-    at _default (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/@storybook/core/dist/server/config.js:73:6)
-    at Object.buildStatic (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/@storybook/core/dist/server/build-static.js:69:36)
-    at TapSubscriber.operators_1.tap.storybookOptions [as _tapNext] (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/@storybook/angular/dist/builders/src/build-storybook/index.js:15:61)
-    at TapSubscriber._next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/operators/tap.js:59:27)
-    at TapSubscriber.Subscriber.next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/Subscriber.js:68:18)
-    at MapSubscriber._next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/operators/map.js:55:26)
-    at MapSubscriber.Subscriber.next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/Subscriber.js:68:18)
-    at TapSubscriber._next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/operators/tap.js:65:26)
-    at TapSubscriber.Subscriber.next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/Subscriber.js:68:18)
-    at TapSubscriber._next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/operators/tap.js:65:26)
-    at TapSubscriber.Subscriber.next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/Subscriber.js:68:18)
-    at MapSubscriber._next (/mnt/c/Users/jo/dev/build-storybook/example/node_modules/rxjs/internal/operators/map.js:55:26)
-error Command failed with exit code 1.
-
-```
+For the moment, only the webpack config is generated in `angular-cli-webpack-config.json` but the configuration seems to be invalid fo webpack...
 
 ## Angular Configurations
 

@@ -11,6 +11,7 @@ import {BuildStorybookSchema} from './build-storybook/schema';
 import {Configuration} from 'webpack';
 import program from 'commander';
 import {StorybookOptions} from './storybook.types';
+// @ts-ignore
 import packageJson from '../package.json';
 
 export abstract class StorybookBuilder<T extends (BuildStorybookSchema | StartStorybookSchema)> implements Builder<T> {
@@ -39,7 +40,7 @@ export abstract class StorybookBuilder<T extends (BuildStorybookSchema | StartSt
 
       // write config to a file (TO DELETE)
       tap(webpackConfig => {
-        fs.writeFileSync("output.json", JSON.stringify(webpackConfig, null, 2));
+        fs.writeFileSync("angular-cli-webpack-config.json", JSON.stringify(webpackConfig, null, 2));
       }),
 
       // Inject options in program to allow storybook to use them
@@ -90,9 +91,9 @@ export abstract class StorybookBuilder<T extends (BuildStorybookSchema | StartSt
     return map(angularWebpackConfig => ({
       packageJson,
       defaultConfigName: 'angular-cli',
-      wrapInitialConfig: config => config,
-      wrapDefaultConfig: config => config,
-      wrapBasicConfig: config => config
+      frameworkPresets: [
+        require.resolve('./framework-preset-angular-cli.js'),
+      ]
     }));
   }
 
