@@ -44,8 +44,6 @@ export class BuildStorybookBuilder implements Builder<BuildStorybookSchema> {
           const webpackMerge = require('webpack-merge');
           function webpack(config) {
             var cfg = webpackMerge(config, ${stringifyObject(webpackConfig)});
-            console.log('------------------------------------');
-            console.log(cfg);
             return cfg;
           }
           exports.webpack = webpack;
