@@ -3,17 +3,18 @@ import { bindNodeCallback, Observable, of, OperatorFunction } from 'rxjs';
 import { catchError, concatMap, map, tap } from 'rxjs/operators';
 import { Path, resolve, virtualFs } from '@angular-devkit/core';
 import { Stats, writeFile } from 'fs';
+import path from 'path';
 import { normalizeAssetPatterns } from '@angular-devkit/build-angular/src/utils';
 import { BrowserBuilderSchema } from '@angular-devkit/build-angular/src/browser/schema';
 import { BrowserBuilder, NormalizedBrowserBuilderSchema } from '@angular-devkit/build-angular/src/browser';
-import { WebpackBuilder } from '@angular-devkit/build-webpack';
 import { StartStorybookSchema } from './start-storybook/schema';
 import { BuildStorybookSchema } from './build-storybook/schema';
-import { Configuration } from 'webpack';
 import program from 'commander';
 import { StorybookOptions } from './storybook.types';
 // @ts-ignore
 import packageJson from '../package.json';
+import  stringifyObject from 'stringify-object';
+
 export abstract class StorybookBuilder<T extends (BuildStorybookSchema | StartStorybookSchema)> implements Builder<T> {
 
   protected constructor(protected context: BuilderContext) {
@@ -25,7 +26,6 @@ export abstract class StorybookBuilder<T extends (BuildStorybookSchema | StartSt
     const projectRoot = resolve(root, builderConfig.root);
     const host = new virtualFs.AliasHost(this.context.host as virtualFs.Host<Stats>);
     const browserOptions: Partial<BrowserBuilderSchema> = {};
-    const webpackBuilder = new WebpackBuilder({ ...this.context, host });
     const writeFileObs = bindNodeCallback(writeFile);
 
     return of(null).pipe(
@@ -41,14 +41,15 @@ export abstract class StorybookBuilder<T extends (BuildStorybookSchema | StartSt
       map(() => this.buildWebpackConfig(root, projectRoot, host, browserOptions as NormalizedBrowserBuilderSchema)),
 
       // write config to a file (TO DELETE)
-/*      map(webpackConfig => {
-        console.log((webpackConfig.optimization.splitChunks as SplitChunksOptions).maxAsyncRequests );
-
-        const newWebpackConfig: Configuration = {...webpackConfig};
-        (newWebpackConfig.optimization.splitChunks as SplitChunksOptions).maxAsyncRequests = 9999999;
-        return newWebpackConfig;
-      }),*/
-      concatMap(webpackConfig => writeFileObs("angular-cli-webpack-config.json", JSON.stringify(webpackConfig, null, 2))),
+      map(webpackConfig => stringifyObject(webpackConfig)),
+      concatMap(webpackConfigSerialized => writeFileObs(path.resolve(__dirname, 'framework-preset-angular-cli.js'),
+        `"use strict";
+         Object.defineProperty(exports, "__esModule", { value: true });
+         function webpack(config) {
+            return ${ webpackConfigSerialized };
+         }
+         exports.webpack = webpack;`)
+      ),
 
       // Inject options in program to allow storybook to use them
       this.injectBuilderOptionsToProgram(options, browserOptions, projectRoot),
@@ -106,7 +107,7 @@ export abstract class StorybookBuilder<T extends (BuildStorybookSchema | StartSt
       packageJson,
       defaultConfigName: 'angular-cli',
       frameworkPresets: [
-        require.resolve('./framework-preset-angular-cli.js'),
+        require.resolve(path.resolve(__dirname,'framework-preset-angular-cli.js')),
       ]
     }));
   }
