@@ -8,10 +8,6 @@
       "type": "string",
       "description": "Target to serve."
     },
-    "tsConfig": {
-      "type": "string",
-      "description": "The name of the TypeScript configuration file."
-    },
     "port": {
       "type": "number",
       "description": "Port to run Storybook",
@@ -58,5 +54,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["browserTarget", "tsConfig"]
+  "required": ["browserTarget"]
 }

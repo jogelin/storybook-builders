@@ -5,30 +5,21 @@
  * https://bcherny.github.io/json-schema-to-typescript-browser/
  */
 
+import { AssetPatternObject } from '@angular-devkit/build-angular';
+import { StorybookSchema } from '../storybook-schema';
+
+export interface NormalizedBuildStorybookSchema extends BuildStorybookSchema {
+  assets: AssetPatternObject[];
+}
+
 /**
  * Build Storybook target options (https://storybook.js.org/configurations/cli-options/)
  */
-export interface BuildStorybookSchema {
-  /**
-   * Target.
-   */
-  browserTarget: string;
-  /**
-   * The name of the TypeScript configuration file.
-   */
-  tsConfig: string;
-  /**
-   * Global styles to be included in the build.
-   */
-  staticDir?: string[];
+export interface BuildStorybookSchema extends StorybookSchema {
   /**
    * Directory where to store built files
    */
   outputDir: string;
-  /**
-   * Directory where to load Storybook configurations from
-   */
-  configDir?: string;
   /**
    * Enable watch mode
    */

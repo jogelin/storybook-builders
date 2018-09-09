@@ -5,18 +5,21 @@
  * https://bcherny.github.io/json-schema-to-typescript-browser/
  */
 
+import { BuildStorybookSchema } from '../build-storybook/schema';
+import { AssetPatternObject } from '@angular-devkit/build-angular';
+
+export interface NormalizedStartStorybookSchema extends StartStorybookSchema {
+  assets: AssetPatternObject[];
+}
+
 /**
  * Start Storybook target options (https://storybook.js.org/configurations/cli-options/)
  */
-export interface StartStorybookSchema {
+export interface StartStorybookSchema extends BuildStorybookSchema {
   /**
    * Target.
    */
   browserTarget: string;
-  /**
-   * The name of the TypeScript configuration file.
-   */
-  tsConfig: string;
   /**
    * Port to run Storybook
    */
@@ -25,14 +28,6 @@ export interface StartStorybookSchema {
    * Host to run Storybook
    */
   host?: string;
-  /**
-   * Directories where to load static files from
-   */
-  staticDir?: string[];
-  /**
-   * Directory where to load Storybook configurations from
-   */
-  configDir?: string;
   /**
    * Serve Storybook over HTTPS. Note: You must provide your own certificate information.
    */

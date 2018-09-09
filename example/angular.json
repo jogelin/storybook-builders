@@ -40,12 +40,10 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
-        "browse": {
-          "builder": "@angular-devkit/build-angular:browser",
+        "build": {
+          "builder": "@storybook/angular/dist/builders:build-storybook",
           "options": {
-            "outputPath": "dist/storybook/",
-            "main": "",
-            "index": "",
+            "outputDir": "dist/storybook/",
             "polyfills": "projects/storybook/src/polyfills.ts",
             "tsConfig": "projects/storybook/tsconfig.app.json",
             "assets": [
@@ -54,22 +52,13 @@
             ],
             "styles": [
               "projects/storybook/src/styles.css"
-            ],
-            "scripts": []
-          }
-        },
-        "build": {
-          "builder": "@storybook/angular/dist/builders:build-storybook",
-          "options": {
-            "browserTarget": "storybook:browse",
-            "tsConfig": "projects/storybook/tsconfig.app.json"
+            ]
           }
         },
         "serve": {
           "builder": "@storybook/angular/dist/builders:start-storybook",
           "options": {
-            "browserTarget": "storybook:browse",
-            "tsConfig": "projects/storybook/tsconfig.app.json"
+            "browserTarget": "storybook:build"
           }
         }
       }

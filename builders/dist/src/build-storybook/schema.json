@@ -4,13 +4,29 @@
   "title": "BuildStorybookSchema",
   "description": "Build Storybook target options (https://storybook.js.org/configurations/cli-options/)",
   "properties": {
-    "browserTarget": {
+    "assets": {
+      "type": "array",
+      "description": "List of static application assets.",
+      "default": [],
+      "items": {
+        "$ref": "#/definitions/assetPattern"
+      }
+    },
+    "polyfills": {
       "type": "string",
-      "description": "Target to serve."
+      "description": "The name of the polyfills file."
     },
     "tsConfig": {
       "type": "string",
       "description": "The name of the TypeScript configuration file."
+    },
+    "styles": {
+      "description": "Global styles to be included in the build.",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "#/definitions/extraEntryPoint"
+      }
     },
     "staticDir": {
       "type": "array",
@@ -35,5 +51,67 @@
     }
   },
   "additionalProperties": false,
-  "required": ["browserTarget", "tsConfig"]
+  "required": ["tsConfig"],
+  "definitions": {
+    "assetPattern": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "glob": {
+              "type": "string",
+              "description": "The pattern to match."
+            },
+            "input": {
+              "type": "string",
+              "description": "The input path dir in which to apply 'glob'. Defaults to the project root."
+            },
+            "output": {
+              "type": "string",
+              "description": "Absolute path within the output."
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "glob",
+            "input",
+            "output"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "extraEntryPoint": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "description": "The file to include."
+            },
+            "bundleName": {
+              "type": "string",
+              "description": "The bundle name for this extra entry point."
+            },
+            "lazy": {
+              "type": "boolean",
+              "description": "If the bundle will be lazy loaded.",
+              "default": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "input"
+          ]
+        },
+        {
+          "type": "string",
+          "description": "The file to include."
+        }
+      ]
+    }
+  }
 }

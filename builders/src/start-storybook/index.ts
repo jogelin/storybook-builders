@@ -1,26 +1,16 @@
-import {BuilderContext} from '@angular-devkit/architect';
-import {StartStorybookSchema} from './schema';
-import {buildDev} from '@storybook/core/server';
-import {BrowserBuilderSchema} from '@angular-devkit/build-angular/src/browser/schema';
-import {StorybookBuilder} from '../storybook-builder';
-import {OperatorFunction} from 'rxjs';
-import {StorybookOptions} from '../storybook.types';
-import {tap} from 'rxjs/operators';
+import { Builder, BuilderConfiguration, BuilderContext, BuildEvent } from '@angular-devkit/architect';
+import { StartStorybookSchema } from './schema';
+import { buildDev } from '@storybook/core/server';
+import { Observable, of } from 'rxjs';
+import { BuildStorybookSchema } from '../build-storybook/schema';
 
-export class StartStorybookBuilder extends StorybookBuilder<StartStorybookSchema> {
+export class StartStorybookBuilder implements Builder<StartStorybookSchema> {
 
-  constructor(protected context: BuilderContext) {
-    super(context);
+  protected constructor(protected context: BuilderContext) {
   }
 
-  protected getBrowserOptionsOverrides(options: StartStorybookSchema): Partial<BrowserBuilderSchema> {
-    return {
-      ...(options.tsConfig !== undefined ? {tsConfig: options.tsConfig} : {})
-    };
-  }
-
-  protected buildStorybook(): OperatorFunction<StorybookOptions, StorybookOptions> {
-    return tap(storybookOptions => buildDev(storybookOptions));
+  public run(builderConfig: BuilderConfiguration<BuildStorybookSchema>): Observable<BuildEvent> {
+    return of({success: true});
   }
 }
 
