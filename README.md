@@ -8,23 +8,34 @@
 
 ## Dev
 
-### Build builders
+#### Install 
+```
+cd builders && yarn
+```
+```
+cd example && yarn
+```
+
+#### Build builders
 ```
 cd builders && yarn build
 ```
 When builders are built, they are copied to the node_modules/ of the example
 
-### Build example
+#### Build example
 ```
-cd builders && yarn build storybook
+cd example && yarn build storybook
 ```
 
-### start example
+#### start example (Not implemented)
 ```
 yarn start storybook
 ```
 ### Status
-For the moment, only the webpack config is generated in `angular-cli-webpack-config.json` but the configuration seems to be invalid fo webpack...
+- The builders are defined
+- The example can call the builders
+- A partial webconfig is done and generated in temporary file
+- storybook start quickly but
 
 ## Angular Configurations
 

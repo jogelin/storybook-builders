@@ -64,14 +64,16 @@ export class BuildStorybookBuilder implements Builder<BuildStorybookSchema> {
       throw new Error(`Typescript config file "${this.options.tsConfig}" not found`);
     }
 
-    return webpackMerge(this.getAngularWebpackConfig(this.options), this.getAngularCliWebpackConfig());
+    //TODO
+    // return webpackMerge(this.getAngularWebpackConfig(), this.getAngularCliWebpackConfig());
+    return this.getAngularWebpackConfig();
   }
 
   private getAngularCliWebpackConfig(): Configuration {
     // eslint-disable-next-line global-require, import/no-extraneous-dependencies
     const ngcliConfigFactory = require('@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs');
 
-    let wco: WebpackConfigOptions<NormalizedBuildStorybookSchema>;
+    let wco: WebpackConfigOptions<NormalizedBuildStorybookSchema & {scripts: string[], outputPath: string}>;
 
     const tsConfigPath = getSystemPath(normalize(resolve(this.root, normalize(this.options.tsConfig))));
     const tsConfig = readTsconfig(tsConfigPath);
@@ -84,11 +86,12 @@ export class BuildStorybookBuilder implements Builder<BuildStorybookSchema> {
     wco = {
       root: getSystemPath(this.root),
       projectRoot: getSystemPath(this.projectRoot),
-      buildOptions: this.options,
+      buildOptions: { ...this.options, scripts: [], outputPath: this.options.outputDir },
       tsConfig,
       tsConfigPath,
       supportES2015
     };
+    console.log(wco);
 
     let cliCommonConfig;
     let cliStyleConfig;
@@ -96,28 +99,31 @@ export class BuildStorybookBuilder implements Builder<BuildStorybookSchema> {
       cliCommonConfig = ngcliConfigFactory.getCommonConfig(wco);
       cliStyleConfig = ngcliConfigFactory.getStylesConfig(wco);
     } catch (e) {
+      console.error(e);
       logger.warn('=> Failed to get angular-cli webpack config.');
       return {};
     }
     logger.info('=> Get angular-cli webpack config.');
 
     // Don't use storybooks .css/.scss rules because we have to use rules created by @angular-devkit/build-angular
+    // TODO
     // because @angular-devkit/build-angular created rules have include/exclude for global style files.
-    const rulesExcludingStyles = baseConfig.module.rules.filter(
-      rule =>
-        !rule.test || (rule.test.toString() !== '/\\.css$/' && rule.test.toString() !== '/\\.scss$/')
-    );
+    /*    const rulesExcludingStyles = baseConfig.module.rules.filter(
+          rule =>
+            !rule.test || (rule.test.toString() !== '/\\.css$/' && rule.test.toString() !== '/\\.scss$/')
+        );*/
 
     // cliStyleConfig.entry adds global style files to the webpack context
     const entry = {
       iframe: []
-        .concat(Object.values(cliStyleConfig.entry).reduce((acc, item) => acc.concat(item), []))
+        .concat(Object.values(cliStyleConfig.entry).reduce((acc: string[], item: string[]) => acc.concat(item, [])))
     };
 
     return {
       entry,
       module: {
-        rules: [...cliStyleConfig.module.rules, ...rulesExcludingStyles]
+        // rules: [...cliStyleConfig.module.rules, ...rulesExcludingStyles]
+        rules: [...cliStyleConfig.module.rules]
       },
       // We use cliCommonConfig plugins to serve static assets files.
       plugins: [...cliStyleConfig.plugins, ...cliCommonConfig.plugins],
